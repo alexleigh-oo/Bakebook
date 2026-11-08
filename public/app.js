@@ -110,21 +110,29 @@ function localApi(url, opts = {}) {
   throw new Error('Request failed');
 }
 
+async function loadStaticRecipes() {
+  staticMode = true;
+  $('storageNote').hidden = false;
+  const saved = localStorage.getItem('bakebook-recipes');
+  if (saved !== null) {
+    localRecipes = JSON.parse(saved);
+  } else {
+    const seedResponse = await fetch('recipes.json');
+    if (!seedResponse.ok) throw new Error('Could not load the sample recipes.');
+    localRecipes = await seedResponse.json();
+  }
+}
+
 async function initialize() {
-  const response = await fetch('api/stats');
-  if (response.status === 404) {
-    staticMode = true;
-    $('storageNote').hidden = false;
-    const saved = localStorage.getItem('bakebook-recipes');
-    if (saved !== null) {
-      localRecipes = JSON.parse(saved);
-    } else {
-      const seedResponse = await fetch('recipes.json');
-      if (!seedResponse.ok) throw new Error('Could not load the sample recipes.');
-      localRecipes = await seedResponse.json();
+  if (location.hostname.endsWith('.github.io')) {
+    await loadStaticRecipes();
+  } else {
+    const response = await fetch('api/stats');
+    if (response.status === 404) {
+      await loadStaticRecipes();
+    } else if (!response.ok) {
+      throw new Error(`Could not connect to the recipe server (${response.status}).`);
     }
-  } else if (!response.ok) {
-    throw new Error(`Could not connect to the recipe server (${response.status}).`);
   }
   await refresh();
 }
