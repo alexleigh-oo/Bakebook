@@ -1,0 +1,58 @@
+[
+  {
+    "id": 1,
+    "title": "Classic Banana Bread",
+    "category": "Bread",
+    "difficulty": "Easy",
+    "prep_minutes": 15,
+    "bake_minutes": 55,
+    "oven_temp": 175,
+    "servings": 10,
+    "ingredients": "3 ripe bananas\n1/3 cup melted butter\n3/4 cup sugar\n1 egg\n1 tsp baking soda\n1 1/2 cups flour\nPinch of salt",
+    "instructions": "Mash bananas and mix with butter.\nStir in sugar, egg and baking soda.\nFold in flour and salt.\nPour into a loaf pan and bake until a toothpick comes out clean.",
+    "favorite": 1,
+    "image_url": "images/banana-bread.jpg"
+  },
+  {
+    "id": 2,
+    "title": "Chewy Chocolate Chip Cookies",
+    "category": "Cookies",
+    "difficulty": "Easy",
+    "prep_minutes": 20,
+    "bake_minutes": 12,
+    "oven_temp": 180,
+    "servings": 24,
+    "ingredients": "1 cup butter\n3/4 cup brown sugar\n1/2 cup sugar\n2 eggs\n2 1/4 cups flour\n1 tsp baking soda\n2 cups chocolate chips",
+    "instructions": "Cream butter and sugars.\nBeat in eggs.\nMix in dry ingredients, then chips.\nScoop onto trays and bake until edges are golden.",
+    "favorite": 1,
+    "image_url": "images/cookies.jpg"
+  },
+  {
+    "id": 3,
+    "title": "Lemon Drizzle Cake",
+    "category": "Cake",
+    "difficulty": "Medium",
+    "prep_minutes": 25,
+    "bake_minutes": 45,
+    "oven_temp": 170,
+    "servings": 12,
+    "ingredients": "200g butter\n200g sugar\n4 eggs\n200g self-raising flour\nZest of 2 lemons\nJuice of 2 lemons\n100g icing sugar",
+    "instructions": "Cream butter and sugar, beat in eggs.\nFold in flour and zest.\nBake in a lined tin.\nMix juice and icing sugar and pour over the warm cake.",
+    "favorite": 0,
+    "image_url": "images/lemon-drizzle-cake.jpg"
+  },
+  {
+    "id": 4,
+    "title": "Croissants",
+    "category": "Pastry",
+    "difficulty": "Hard",
+    "prep_minutes": 240,
+    "bake_minutes": 20,
+    "oven_temp": 200,
+    "servings": 8,
+    "ingredients": "500g bread flour\n10g salt\n55g sugar\n10g yeast\n300ml cold milk\n280g cold butter block",
+    "instructions": "Make the dough and chill overnight.\nEnclose butter and complete three folds, chilling between each.\nRoll, cut and shape triangles.\nProof, egg wash and bake.",
+    "favorite": 0,
+    "image_url": "images/pastry.jpg"
+  }
+]

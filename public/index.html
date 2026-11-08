@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bakebook – Baking Recipe Dashboard</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header>
+  <div class="brand"><span class="brand-mark" aria-hidden="true">✿</span><div><h1>Bakebook</h1><p class="sub">Your baking recipe collection</p></div></div>
+  <button class="primary" id="addBtn"><span aria-hidden="true">＋</span> Add a recipe</button>
+</header>
+<main>
+  <p class="app-error" id="appError" role="alert" hidden></p>
+  <p class="storage-note" id="storageNote" hidden>Demo mode: changes are saved in this browser only.</p>
+  <section class="welcome">
+    <div><p class="eyebrow">A little sweetness, every day</p><h2>Made with love.<br><span>Baked by you.</span></h2>
+      <p>Keep your favorite bakes close, and find a little inspiration for the next one.</p>
+      <button class="welcome-button" id="welcomeAdd">Let’s bake something <span aria-hidden="true">→</span></button></div>
+    <div class="welcome-art" aria-hidden="true"><span class="sparkle sparkle-one">✦</span><span class="sparkle sparkle-two">✧</span><span class="art-cake">🍰</span><span class="art-cookie">🍪</span><span class="art-flower">✿</span></div>
+  </section>
+  <section class="stats" id="stats" aria-label="Summary"></section>
+  <section class="panel"><div class="section-heading"><div><p class="eyebrow">Your baking shelf</p><h2>Recipes by category</h2></div><span class="section-doodle" aria-hidden="true">✿</span></div><div id="chart"></div></section>
+  <section class="toolbar">
+    <label class="search-wrap"><span aria-hidden="true">⌕</span><input id="search" type="search" placeholder="Find a favorite bake..." aria-label="Search recipes"></label>
+    <select id="catFilter" aria-label="Filter by category"><option value="">All categories</option></select>
+  </section>
+  <div class="recipe-heading"><div><p class="eyebrow">Fresh from your kitchen</p><h2>Your recipes</h2></div><span id="recipeCount" class="recipe-count"></span></div>
+  <section class="grid" id="grid"></section>
+  <div class="empty" id="empty" hidden>No recipes found. Add your first one.</div>
+</main>
+
+<dialog id="dlg">
+  <form id="form" method="dialog">
+    <h2 id="dlgTitle">Add recipe</h2>
+    <label for="f-title">Title</label><input id="f-title" required>
+    <div class="row">
+      <div><label for="f-cat">Category</label>
+        <input id="f-cat" list="cats" required placeholder="e.g. Bread">
+        <datalist id="cats"><option>Bread</option><option>Cake</option><option>Cookies</option><option>Pastry</option><option>Pie</option></datalist></div>
+      <div><label for="f-diff">Difficulty</label>
+        <select id="f-diff"><option>Easy</option><option>Medium</option><option>Hard</option></select></div>
+    </div>
+    <div class="row3">
+      <div><label for="f-prep">Prep (min)</label><input id="f-prep" type="number" min="0" step="1" required></div>
+      <div><label for="f-bake">Bake (min)</label><input id="f-bake" type="number" min="0" step="1" required></div>
+      <div><label for="f-temp">Oven (°C)</label><input id="f-temp" type="number" min="0" step="5" required></div>
+    </div>
+    <label for="f-serv">Servings</label><input id="f-serv" type="number" min="1" step="1" required>
+    <label for="f-image">Recipe image URL <span class="optional">(optional)</span></label><input id="f-image" type="url" placeholder="https://example.com/my-bake.jpg">
+    <small class="field-hint">Paste a link to a photo. A matching recipe photo is used if you leave this blank.</small>
+    <label for="f-ing">Ingredients (one per line)</label><textarea id="f-ing" rows="4" required></textarea>
+    <label for="f-ins">Instructions (one step per line)</label><textarea id="f-ins" rows="4" required></textarea>
+    <div class="err" id="err" role="alert"></div>
+    <div class="foot">
+      <button type="button" id="cancel">Cancel</button>
+      <button class="primary" type="submit">Save recipe</button>
+    </div>
+  </form>
+</dialog>
+
+<dialog id="view"><div id="viewBody"></div><div class="foot"><button id="closeView" type="button">Close</button></div></dialog>
+
+<script src="app.js"></script>
+</body>
+</html>
